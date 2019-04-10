@@ -40,6 +40,10 @@ public class UI extends PApplet {
 	{
 		loadColours();
 		printColours();
+		Colour c = findColor(1);
+		System.out.println("Colour found: " + c.getColour());
+		c = findColor(2);
+		System.out.println("Colour found: " + c.getColour());
 	}
 	
 	public void draw()
@@ -60,5 +64,14 @@ public class UI extends PApplet {
 		for (Colour c : colours) {
 			System.out.println("r: " + c.getR()+ "\tg: " + c.getG()+ "\tb: " + c.getB()+ "\tvalue: " + c.getValue()+ "\tcolour: " + c.getColour());
 		}
+	}
+
+	public Colour findColor(int value) {
+		for (Colour c : colours) {
+			if (c.getValue() == value) {
+				return c;
+			}
+		}
+		return null;
 	}
 }
