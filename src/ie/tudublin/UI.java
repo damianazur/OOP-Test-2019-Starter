@@ -15,6 +15,9 @@ import processing.data.Table;
 import processing.data.TableRow;
 
 public class UI extends PApplet {	
+	private int gap = 50;
+	private int boxSide = 100;
+
 	private ArrayList<Colour> colours = new ArrayList<Colour>();
 	private ArrayList<Resistor> resistors = new ArrayList<Resistor>();
 
@@ -47,10 +50,52 @@ public class UI extends PApplet {
 		System.out.println("Colour found: " + c.getColour());
 		loadResistors();
 	}
+
+	public void drawResistors() {
+		int i = 1;
+		for (Resistor r : resistors) {
+			// get resistor colour number
+			int hundreds = r.getHundreds();
+			int tens = r.getTens();
+			int ones = r.getOnes();
+			
+			// get colour from that resistor number
+			Colour cHun = findColor(hundreds);
+			Colour cTen = findColor(tens);
+			Colour cOne = findColor(ones);
+
+			// draw the resistor
+			float y = (gap*i)+boxSide*(i - 1);
+			float halfSide = boxSide/2;
+			stroke(0, 0, 0);
+			textAlign(LEFT, CENTER);
+
+			// draw line going through the resistor
+			line(200 - halfSide, y + halfSide, 200 + boxSide + halfSide, y + halfSide);
+			fill(150);
+			// draw the box
+			rect(200, y, boxSide, boxSide);
+			// draw hundred bar
+			fill(cHun.getR(), cHun.getG(), cHun.getB());
+			rect(200 + 10, y, 10, boxSide);
+			text(20, 600, y + halfSide, cHun.getValue());
+			// draw tens bar
+			fill(cTen.getR(), cTen.getG(), cTen.getB());
+			rect(200 + 30, y, 10, boxSide);
+			text(20, 600, y + halfSide, cHun.getValue());
+			// draw ones bar
+			fill(cOne.getR(), cOne.getG(), cOne.getB());
+			rect(200 + 50, y, 10, boxSide);
+			text(20, 600, y + halfSide, cHun.getValue());
+
+			i++;
+		}
+	}
 	
 	public void draw()
 	{	
-
+		background(150);
+		drawResistors();
 	}
 
 	public void loadColours() {
@@ -64,7 +109,7 @@ public class UI extends PApplet {
 
 	public void printColours() {
 		for (Colour c : colours) {
-			System.out.println("r: " + c.getR()+ "\tg: " + c.getG()+ "\tb: " + c.getB()+ "\tvalue: " + c.getValue()+ "\tcolour: " + c.getColour());
+			System.out.println(c.toString());
 		}
 	}
 

@@ -14,6 +14,10 @@ public class Colour {
         this.colour = row.getString("colour");
     }
 
+    public String toString() {
+        return "r: " + r + "\tg: " + g + "\tb: " + b + "\tvalue: " + value + "\tcolour: " + colour;
+    }
+
     /**
      * @return the r
      */
