@@ -4,6 +4,8 @@
 	DT228/2
 	OOP Lab Test 
 	10/04/2019
+
+	Lab started late on the 3rd floor lab because the people in before had a CA 
 */
 
 package ie.tudublin;
