@@ -69,6 +69,7 @@ public class UI extends PApplet {
 			float halfSide = boxSide/2;
 			stroke(0, 0, 0);
 			textAlign(LEFT, CENTER);
+			textSize(20);
 
 			// draw line going through the resistor
 			line(200 - halfSide, y + halfSide, 200 + boxSide + halfSide, y + halfSide);
@@ -78,15 +79,15 @@ public class UI extends PApplet {
 			// draw hundred bar
 			fill(cHun.getR(), cHun.getG(), cHun.getB());
 			rect(200 + 10, y, 10, boxSide);
-			text(20, 600, y + halfSide, cHun.getValue());
+			text(cHun.getValue(), 600, y + halfSide);
 			// draw tens bar
 			fill(cTen.getR(), cTen.getG(), cTen.getB());
 			rect(200 + 30, y, 10, boxSide);
-			text(20, 600, y + halfSide, cHun.getValue());
+			text(cTen.getValue(), 600, y + halfSide);
 			// draw ones bar
 			fill(cOne.getR(), cOne.getG(), cOne.getB());
-			rect(200 + 50, y, 10, boxSide);
-			text(20, 600, y + halfSide, cHun.getValue());
+			rect(200 + 50, y, 10, boxSide); 
+			text(cTen.getValue(), 600, y + halfSide);
 
 			i++;
 		}
