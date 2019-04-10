@@ -79,15 +79,15 @@ public class UI extends PApplet {
 			// draw hundred bar
 			fill(cHun.getR(), cHun.getG(), cHun.getB());
 			rect(200 + 10, y, 10, boxSide);
-			text(cHun.getValue(), 600, y + halfSide);
+			text(r.getValue(), 400, y + halfSide);
 			// draw tens bar
 			fill(cTen.getR(), cTen.getG(), cTen.getB());
 			rect(200 + 30, y, 10, boxSide);
-			text(cTen.getValue(), 600, y + halfSide);
+			text(r.getValue(), 400, y + halfSide);
 			// draw ones bar
 			fill(cOne.getR(), cOne.getG(), cOne.getB());
 			rect(200 + 50, y, 10, boxSide); 
-			text(cTen.getValue(), 600, y + halfSide);
+			text(r.getValue(), 400, y + halfSide);
 
 			i++;
 		}

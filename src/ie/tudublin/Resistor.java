@@ -4,6 +4,7 @@ public class Resistor {
     private int hundreds;
     private int tens;
     private int ones;
+    private int value;
 
     public Resistor(int value) {
         hundreds = (value / 100);
@@ -13,6 +14,8 @@ public class Resistor {
         System.out.print(hundreds + ",");
         System.out.print(tens + ",");
         System.out.println(ones);
+
+        this.value = value;
     }
 
     /**
@@ -55,5 +58,19 @@ public class Resistor {
      */
     public void setOnes(int ones) {
         this.ones = ones;
+    }
+
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
     }
 }
